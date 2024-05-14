@@ -56,7 +56,6 @@ if data["cod"] != "404":
     )
 
     # Send email using SendGrid
-    # Send email using SendGrid
     try:
         sg = SendGridAPIClient(sendgrid_api_key)  # Use sendgrid_api_key variable instead of 'SENDGRID_API_KEY'
         response = sg.send(message)
