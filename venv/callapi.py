@@ -3,12 +3,13 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 from dotenv import load_dotenv
 import os
+import psycopg2
 
 load_dotenv()
 
 weather_api_key = os.getenv('WEATHER_API_KEY')
 sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
-
+db_string = os.getenv('DB_CONNECTION_STRING')
 # Base URL variable to store URL
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
@@ -48,7 +49,7 @@ if data["cod"] != "404":
 
     # Create SendGrid email message
     message = Mail(
-        from_email='dhananjay.singh552@gmail.com',
+        from_email='your_email_id', # Enter the sender's email id
         to_emails=email_id,
         subject=f"Weather Update for {city_name}",
         plain_text_content=email_content
@@ -61,6 +62,13 @@ if data["cod"] != "404":
         response = sg.send(message)
         if response.status_code == 202:
             print("Email sent successfully!")
+             #Insert user details into the database
+            conn = psycopg2.connect(db_string)
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO users (email, city) VALUES (%s, %s)", (email_id, city_name))
+            conn.commit()
+            cursor.close()
+            conn.close()
         else:
             print("Failed to send email.")
     except Exception as e:
