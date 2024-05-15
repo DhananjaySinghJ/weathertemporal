@@ -26,9 +26,10 @@ Weather information is vital for various industries and individuals, from agricu
 
 ## Configuration
 
-1. Open the `config.py` file and update the following settings:
+1. Create a .env file for:
 - API keys for the weather API and SendGrid
 - PostgreSQL database connection details
+- Temporal host port
 
 ## Usage
 
