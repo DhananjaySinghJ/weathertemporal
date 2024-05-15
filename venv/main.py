@@ -4,6 +4,7 @@ import weather
 import email_utils
 import database
 
+
 def main():
     # Load environment variables from .env file
     load_dotenv()
