@@ -1,4 +1,4 @@
-# Weather Project
+# Weather Temporal Project
 
 Welcome to the Weather Project! This project aims to fetch weather data from a public API, store it in a PostgreSQL database, and send weather updates to specified users via email. It utilizes Temporal for workflow orchestration to manage the execution of tasks asynchronously.
 
