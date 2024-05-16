@@ -47,6 +47,8 @@ Note: Replace `brew` with the appropriate package manager command if you're not 
 - `weather_email.py`: Python script for sending weather emails
 - `config.py`: Configuration file for API keys, email settings, etc.
 - `README.md`: Project documentation (you're reading it!)
+  
+## TO RUN THE PROJECT WITHOUT TEMPORAL JUST RUN MAIN.py
 
 ## Contributing
 
